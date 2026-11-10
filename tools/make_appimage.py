@@ -255,6 +255,7 @@ def main():
     (app / 'AppRun').write_text(apprun, encoding='utf-8')
     (app / 'AppRun').chmod(0o755)
     (app / 'nx2navi.desktop').write_text(DESKTOP, encoding='utf-8')
+    shutil.copy2(ROOT / 'recomplauncher.json', app / 'recomplauncher.json')   # at the AppDir root, where launchers read it
     from PIL import Image   # the window icon of runtime/nx2navi.ico, as PNG
     with Image.open(ROOT / 'runtime' / 'nx2navi.ico') as ico:
         ico.size = max(ico.ico.sizes())
